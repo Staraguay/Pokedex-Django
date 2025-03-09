@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Pokedex for Caronte{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="main-content" style="min-height: 100vh">
+        {% include 'navbar.html' %}
+
+        <div class="body-content">
+
+            <div class="profile-card">
+                <div>
+                    <a class="btn btn-success btn-lg" href="{% url 'index' %}">Regresar a la pokedex</a>
+                </div>
+
+                <div class="container container-profile mt-5 mb-5">
+                    <div class="pokeName text-center">
+                        <span class="pokeCardName">{{ pokemon.name }}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <img src="{{ pokemon.profileImg }}" class="profile-image"
+                                 width="80%"
+                                 onerror="this.onerror=null; this.src='{% static 'images/not-image.PNG' %}'">
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <P>{{ pokemon.description }}</P>
+                            </div>
+                            <div class="pokeDetails">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="statTitle">Altura</div>
+                                        <div class="statText">{{ pokemon.height }} m</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="statTitle">Categoría</div>
+                                        <div class="statText">{{ pokemon.category }}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="statTitle">Peso</div>
+                                        <div class="statText">{{ pokemon.weight }} kg</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="statTitle">Habilidades</div>
+                                        {% for name in pokemon.allAbilities %}
+                                            <div class="statText">{{ name }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="statTitle">Sexo</div>
+                                        {% if pokemon.gender == 0 %}
+                                            <div class="statText">Desconocido <i class="bi bi-question-diamond"></i>
+                                            </div>
+                                        {% elif pokemon.gender == 1 %}
+                                            <div class="statText">Macho <i class="bi bi-gender-male"></i></div>
+                                        {% elif pokemon.gender == 2 %}
+                                            <div class="statText">Macho y Hembra <i class="bi bi-gender-female"></i> <i
+                                                    class="bi bi-gender-male"></i></div>
+                                        {% elif pokemon.gender == 3 %}
+                                            <div class="statText">Hembra <i class="bi bi-gender-female"></i></div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col">
+                                        <div class="statTitle">Habitad</div>
+                                        <div class="statText">{{ pokemon.habitat }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mt-3">
+                                <h3>Tipo</h3>
+                                <div class="container">
+                                    <div class="row" style="padding-left: 0px">
+                                        {% for type in pokemon.typesNames %}
+                                            <div class="col col-3 mb-3 typeElement">
+                                                {{ type }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mt-3">
+                                <h3>Debilidad</h3>
+                                <div class="container">
+                                    <div class="row " style="padding-left: 0px">
+                                        {% for weak in pokemon.weakNames %}
+                                            <div class="col col-3 mb-3 typeElement">{{ weak }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+
+
+                            <div class="d-flex flex-column statsBar">
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.hp }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                         style="width: {{ pokemon.hp }}%">PS: {{ pokemon.hp }}</div>
+                                </div>
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.attack }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                         style="width: {{ pokemon.attack }}%">Ataque: {{ pokemon.attack }}</div>
+                                </div>
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.defense }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                         style="width: {{ pokemon.defense }}%">Defensa: {{ pokemon.defense }}</div>
+                                </div>
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.specialAttack }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-attack"
+                                         style="width: {{ pokemon.specialAttack }}%">Ataque
+                                        especial: {{ pokemon.specialAttack }}</div>
+                                </div>
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.specialDefense }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-deffense"
+                                         style="width: {{ pokemon.specialDefense }}%">Defensa
+                                        especial: {{ pokemon.specialDefense }}</div>
+                                </div>
+                                <div class="progress mb-2" role="progressbar" aria-label="Animated striped example"
+                                     aria-valuenow="{{ pokemon.speed }}" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-speed"
+                                         style="width: {{ pokemon.speed }}%">Velocidad: {{ pokemon.speed }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 mb-5 text-center">
+                        <a class="btn btn-outline-secondary btn-lg" href="{% url 'index' %}">Regresar a la pokedex</a>
+                    </div>
+                </div>
+            </div>
+            <div><br></div>
+            <div><br></div>
+
+        </div>
+    </div>
+
+{% endblock %}

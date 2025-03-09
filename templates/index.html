@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Pokedex for Caronte{% endblock %}
+
+{% block content %}
+    {% load static %}
+
+    <div class="main-content" style="min-height: 100vh">
+        {% include 'navbar.html' %}
+
+        <div class="body-content">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="{% static 'images/index-title.png' %}" alt="" width="350px">
+            </div>
+
+            <div class="text-center pt-5">
+                <h2 style="color: #fff"><strong>¡Bienvenido a la pokedex en donde podras obtener toda la información de
+                    cada Pokemón a detalle!</strong></h2>
+            </div>
+
+            {% include './pokemons/searchBar.html' %}
+
+            <div class="pokeTable">
+                <div class="d-flex flex-wrap gap-3">
+
+                    {% if search_result %}
+                        {% for pokemon in search_result %}
+                            {% if pokemon %}
+                                {% include './pokemons/pokemonList.html' %}
+                            {% else %}
+                                <div class="text-center" style="min-height: 30vh; width: 100%">
+                                    <h3>Lo siento no se ha encontrado un pokemon intenta con una nueva busqueda</h3>
+                                    <img src="{% static 'images/not-image.PNG' %}" alt="">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% for pokemon in poke_list %}
+                            {% include './pokemons/pokemonList.html' %}
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+            {% if search_result %}
+            {% else %}
+                {% include './pokemons/pagination.html' %}
+            {% endif %}
+
+            <div class="text-center">
+                <h6><span style="color: #fff">Pokedex created by Sebastian Taraguay 2025</span></h6>
+                <br>
+                <br>
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

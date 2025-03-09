@@ -1,0 +1,23 @@
+{% load static %}
+
+
+<div class="flex-fill mb-4" style="flex-basis: 265px!important;">
+
+    {% if search_result %}
+        <div><h4>Resultado de la busqueda:</h4></div><br>
+    {% endif %}
+
+    <div class="card card-index">
+        <div class="card-img">
+            <img src="{{ pokemon.profileImg }}" class="card-img-top"
+                 onerror="this.onerror=null; this.src='{% static 'images/not-image.PNG' %}'">
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{ pokemon.name }} - <span class="pokeNumber">N.º {{ pokemon.id }}</span></h4>
+            <h6 style="color: #494949">Número de habilidades</h6>
+            <div class="card-text">{{ pokemon.nHabilidades }}</div>
+            <a href="{% url 'perfil' %}?id={{ pokemon.id }}" class="btn btn-primary btn-index">Ver detalles</a>
+        </div>
+    </div>
+</div>
+

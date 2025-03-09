@@ -1,0 +1,18 @@
+<div class="search-index">
+    <div class="d-flex flex-wrap gap-2">
+            <form class="d-flex  flex-fill gap-2" role="search" action="{% url 'search' %}">
+                <input class="form-control me-2" type="search" placeholder="Treecko" name="pokemon"
+                       aria-label="Search" value="{{ request.GET.pokemon }}" required="True" style="min-width: 150px">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            </form>
+            <div class="d-flex flex-fill justify-content-start">
+                {% if search_result %}
+                    <a class="btn btn-danger" style="margin-right: 15px" href="{% url 'index' %}">Borrar busqueda</a>
+                {% endif %}
+                <h5>Busca un Pokémon por su nombre o usando su número de la Pokédex.</h5>
+            </div>
+    </div>
+</div>
+
+
+

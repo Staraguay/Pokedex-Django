@@ -1,0 +1,20 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <nav style="height: fit-content">
+        <ul class="pagination pagination-lg flex-wrap">
+            {% if pagination.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ pagination.previous_page_number }}">Anterior</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+            <li style="background-color: #cbcbcb; padding: 0 5px" class="d-flex align-items-center">
+                <span>{{ pagination.number }} de {{ pagination.paginator.num_pages }}</span>
+            </li>
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ pagination.paginator.num_pages }}">{{ pagination.paginator.num_pages }}</a>
+            </li>
+            {% if pagination.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ pagination.next_page_number }}">Siguiente</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

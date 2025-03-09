@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Pokedex for Caronte{% endblock %}
+
+{% block content %}
+    {% load static %}
+
+    <div class="main-content" style="min-height: 100vh">
+        {% include 'navbar.html' %}
+
+        <div class="body-content">
+
+            <div class="pokeTable" style="min-height: 70vh">
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="{% static 'images/index-title.png' %}" alt="" width="350px">
+                </div>
+
+                <div class="text-center pt-5">
+                    <h2 style="color: #343434"><strong>¡En este proyecto de Django podras obtener toda la informacion de
+                        cada Pokemon a detalle!</strong></h2>
+                </div>
+
+                <div style="margin-top: 30px">
+                    <p>
+
+                        El presente proyecto de programación fue elaborado por Sebastián Taraguay como parte de una
+                        prueba de desarrollo para la empresa Caronte. La aplicación web está elaborada con el Framewrok
+                        de Django en el lenguaje de programación Python junto con HTML y CSS, su funcionamiento se da
+                        mediante el consumo de la API de Pokemón por lo cual simula a una Pokedex, para los elementos
+                        visuales se utilizo Bootstrap 5.3 junto con JavaScrip y Jquery.
+                        La aplicación cuenta con una sección de Inicio de sesión para la cual será necesario ingresar
+                        las credenciales:<br>
+                        Usuario: sebastian<br>
+                        Contraseña: taraguay<br>
+                        Posteriormente en caso de éxito el usuario será redirigido a la pagina de inicio en donde se
+                        muestran los primeros 20 pokemons recuperados de la API ordenados en base a su número de
+                        identificación y al final se encuentra la paginación para poder ir consultando el resto de
+                        pokemons. Dentro de esta página también se encuentra la barra de navegación y la barra de
+                        búsqueda. Cada pokemón tiene un botón que redirige al usuario al perfil de dicho pokemón y
+                        muestra más información de este.
+                        Finalmente, dentro de la barra de navegación se encuentra el enlace para cerrar sesión una vez
+                        el usuario haya terminado su consulta en la pokedex.
+
+                    </p>
+                    <br>
+                    <p>Autor: Sebastian Taraguay - <a href="mailto:sebastara99@hotmail.es">sebastara99@hotmail.es</a>
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="preview-mono" style="font-size: 10px; display: none">
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWNNNXXKKXKKXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNKkollooccc,,;;;,,:odx0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKdc,.....''.....''...'''',coxOKNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXko:.      ...................',,,;cdkKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXo'.           ........... ..  .......';:dKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW0;.             ........ .          ....',:lkXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx'                ...                .....',;:oKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMKc.                 .                     ....',:o0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWk'                                            ..';:kWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXo.                              ....            ..':OMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo.                 ....    .....',;;;;'...       ..,dNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd.       .........'',,'''''.',,;:cloooollc:;,.......:KMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO'      ..,;;;;;;;;:::::cccccclllodddxxxxxxxddolc,....dNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWl      .,;:::::cccccllllllllooodddxxxxxxkkkkkkxxxdc'..'kMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMK,    .';:::::ccccclllooooooooddddxxxxxxkkkOOOkkkkkxl,..lNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMk.   ..;:::::::ccccllooooooooddddxxxkkkkkOOOOOOOkkkkko;.;XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd. ...';::::::::cccllooooooodddxxxxkkkkkOOOOOOOOkkkkkxo,,OMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWo....',;:::::::ccclllooooooddddxxxkkkkOkkOOOOOOOkkkkkkdl;dWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWl...',:::;:::::ccclloooddddddxxxxxkkkkkkkkkkkkkkkOOOOOxdcdNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNl.',;:::;:::::ccllooodddddddxxxxxxxkkkkkkkkkkkkkkOOOOOkxokNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo',;:::;:::::cclloodddxdddxxxxxxxxxxkkkkOOOOOOOkOOOOOOOkxOWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWx;;:::::;,'',,;::clodddddddxxxxxxxkkkkOOOOOOOOkkkkkOOOOOx0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWk;::::;,'''''','''',;:clloodddxxxkkkkkxxxxdoooooooodxkOOkKMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO::c::;;;;;;;::::::;'..',;clodxxxkkxdolc::::clodxxxxxxkOOXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO::cc::;;,'''',,;;:c:;;,'',:loxkkOOkdoc::::clodddxkkOkOO0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOccc:::;,'....... .,,,,,'',;coxkO00Oxo:,'....,;:cclxkOOOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNXNOcc:::;;,....,;'. .;c;.''.',:ldxkOOkxo;,;'  .,lc';cdkOOOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOc:llcc::::;,'..',;;,',:c;''..',:lxkkOOkxdc:::,',lkxc:ldkOOO0XNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd.';:c::cccc::::::ccccc::;,,'',;coxkOOOOkkxolloodxxxxkkkOO0OkxKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWo.,;:cccccccllllllllllcc:;;,,,;:coxkO000OOOkxdxxkOOOOOOOOOOOxkNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd,,,;c:ccccllllllollllcc::;;;;;:ldkOO00000OOOkxxkkOO0000000OkKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM0;..;c:ccccclloooolllccc::;;;;:cldkkO0000000OOkkkkOO0000000O0XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXl.';::::cccllloollllcc::;;;:::lodxxkOOOOO00OOOOOOOOO000000O0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWk:;;:::::cccllllllllc:;;;::::cloxxxk0000OOOOOOOOOOOO000000OKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMKl;::::::ccclllllllc:;,;::,'.,;clddxkkxkO0OkkkOOOOO0000000KNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx:;::::::ccclllllllc;,,;;'...',:loddl:;cxkkkkOOO000000000KWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNOoc:::::ccccccllllc:;;,,''';:codxxkkdooxkkkkkOO0000000O0XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWOc::::::ccccccccc:::;;,,:ldddddxkkkkkkkkkkkOO0000000OKNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXo::::::::cccccc::::::;;cdxdolcldkkkkkkkkOOOOO0000000XWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWkc:::::::::::::::;;;;;;,:lllllloddxkOOOOOOOOO0000000NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMKl::;;;;;;:::;;,''...'''.',cc:::cclodxkkkkOOOOOOOO0KWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx:;;;;;;;::;,'........'''',;:;:::cc::codxkkOOOOOO0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXd;;;;;;;;;;,,'...'',;;:c:clooddxxdolclooxkkkkOOOXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXo;;;,,;;;;;,,,',,,;;::ccloddxxxxxkkxxxdxxkkkkOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXl,,,,,,,;;,,,,,,,,;;;;:ccclodxkkkkkxxxxxxkkOKWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWx,,,,,,,;;;,,,,,,,;;::::ccloddxxxxxxxxkkxxOXWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNd,''',,,;;;;;;;;::::ccclooodxxxxxkkkkkkxxONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXo,,'..'',;;;;;::cccclloddxxkkkkkkkkkkxxxkXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNKxol:;,,'...',,;;;;::ccllloddxxkkkkkkkkkxxxxONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWN0d,..';;;;,,'.....',,,;;:cclllooddxxkkkkkxxxxkkkOXWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWX0xoc:'.   .;;;;;;;,,''......',;;:cccclloodddddddxkkkOkl:ccccodk0NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNNXo'.         .;;;;;;;;;;,,''.......'',,;;;::cloddxxkkOOOOl...      'dXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMMMMMMMMMMWKd:''.            .,;;;;;;:::::;;;,,,'''',,,;:cclodxxkkOOOOOOOc...        'lOKNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMMMMMMMMWKxlc::::,.                  .;;;;;::ccccccc::::::ccclloodxxkkkOOOOOOOOd,...          ..,coxxollodxk0XWMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMMMMMMNKkdoc:;.                            .,;;;:ccclllllllllloooddxxxkkkOOOOOOOOOOx,...                         .';coodONMMMMMMMMMMMMMMMMMMMMMM
+        MMMMMMMWXOdc,.                                    .',;:cclllllllllloodddxxkkkkkOOOOOOOOko'....               ..              ..:kNMMMMMMMMMMMMMMMMMMMM
+        MMMNKxl;.                                           .';:cllloooooooooddxxxkkkkkkkOkOkdl,.....                  .               .'oXMMMMMMMMMMMMMMMMMMM
+        Kkl,.                                                ..';:cllooooooddddxxxxxxxxxxdoc,.... ..                    ..              ..:xOXNWMMMMMMMMMMMMMM
+        '                                                       ..',:cclllllloooooollc:;'..                               .              ....,:lx0NWMMMMMMMMMM
+                                                                    ..................                                     .              .....  .:d0NMMMMMMMM
+                                                                                                                            .             ...    ..''ckXWMMMMM
+                                                                                                                                          ..     ......;dKWMMM
+                                                                                            ..                .                            .     ........;kNMM
+                                                                                                                                           ..    .....   .,l0W
+                                                                                                               .                            .    ...     ...;x
+                                                                                                                                                 ...    .....'
+                                                                                                                                                 ...   .......
+                                                                                                                                                  .    .......
+</div>
+
+{% endblock %}
